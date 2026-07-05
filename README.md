@@ -3,12 +3,14 @@
 This is the starter project for **Assignment 11: Client-Side Routing**.
 
 The assignment instructions live in the course repo, not here:
-`ttp-summer-2026/assignments/ClientSideRouting.md`. Start at "Setup"
-in that file — it explains this project's layout and what to do first.
+[ClientSideRouting.md](https://github.com/aghaffar570/ttp-summer-2026/blob/main/assignments/ClientSideRouting.md).
+Start at "Setup" in that file — it explains this project's layout and
+what to do first.
 
 ## Setup
 
-1. Fork this repo on GitHub, then clone your fork.
+1. Fork [this repo](https://github.com/aghaffar570/quotes-frontend-router-starter)
+   on GitHub, then clone your fork.
 2. Install dependencies:
    ```bash
    npm install
