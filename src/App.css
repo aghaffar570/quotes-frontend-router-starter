@@ -111,9 +111,7 @@ button:hover {
   margin: 12px 0 0;
 }
 
-/* ---- navbar ----
-   Bare shell only — no active-link style yet.
-   Part 2 asks you to add one. */
+/* ---- navbar ---- */
 .navbar {
   display: flex;
   gap: 16px;
@@ -124,4 +122,17 @@ button:hover {
 .navbar a {
   color: var(--text);
   text-decoration: none;
+}
+
+/* Part 2 solution: the active-link style.
+   In Navbar.jsx we use <NavLink> instead of <Link>. NavLink automatically
+   adds the class "active" to whichever link matches the current URL — we
+   don't set that class ourselves. All we have to do here is style it so the
+   page you're currently on looks different from the others.
+   Try commenting this rule out and clicking around: the nav still works, it
+   just gives no hint about where you are. That "you are here" cue is the
+   whole point. */
+.navbar a.active {
+  color: var(--text-h);
+  font-weight: 600;
 }

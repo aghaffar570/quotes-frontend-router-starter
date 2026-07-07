@@ -5,23 +5,30 @@
 // routes.jsx — not inside any individual page).
 // ============================================================
 
-// TODO (Part 2): bring in the nav-link component that knows whether
-//   it's the active route. Docs:
-//   https://reactrouter.com/start/declarative/navigating#navlink
+// Part 2: <NavLink> is a <Link> that ALSO knows whether it points at the
+//   page you're currently on. That lets us style the "you are here" link
+//   differently. Use NavLink for nav bars; plain Link for one-off links.
+//   Docs: https://reactrouter.com/start/declarative/navigating#navlink
+import { NavLink } from 'react-router'
 
 function Navbar() {
   return (
     <nav className="navbar">
-      {/* TODO (Part 2): a link to the home page */}
-      {/* TODO (Part 2): a link to the add-quote page */}
-      {/*
-        Hint: this link component takes a function for its class name
-        instead of a plain string, so it can style itself differently
-        when it's the active route. Check the docs above for the
-        exact shape, then add a small ".active" style in App.css —
-        there isn't one yet, so pick something simple (e.g. font-weight
-        or color).
-      */}
+      {/* Part 2: two nav links.
+          The "className" here is a FUNCTION, not a plain string. NavLink
+          calls it and hands us { isActive } — true when this link matches
+          the current url. We return the class "active" in that case, which
+          the ".navbar a.active" rule in App.css styles.
+
+          "end" on the Home link means "only count as active on EXACTLY /".
+          Without it, Home would light up on /quotes/new too, because that
+          url also starts with "/". */}
+      <NavLink to="/" end className={({ isActive }) => (isActive ? 'active' : '')}>
+        Home
+      </NavLink>
+      <NavLink to="/quotes/new" className={({ isActive }) => (isActive ? 'active' : '')}>
+        Add Quote
+      </NavLink>
     </nav>
   )
 }

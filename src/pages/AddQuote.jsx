@@ -10,20 +10,27 @@
 
 import { useState } from 'react'
 
-// TODO (Part 4): bring in the hook that lets you navigate from code,
-//   not just from a link click. Docs:
-//   https://reactrouter.com/start/declarative/navigating#usenavigate
+// Part 4: useNavigate() hands us a function we can CALL to change pages
+//   from inside our code — no link click required. Perfect for "after the
+//   form submits, go somewhere".
+//   Docs: https://reactrouter.com/start/declarative/navigating#usenavigate
+import { useNavigate } from 'react-router'
 
 function AddQuote() {
   const [text, setText] = useState('')
   const [author, setAuthor] = useState('')
 
-  // TODO (Part 4): get the navigate function from that hook
+  // Get the navigate function. Think of it as "go to this url", in code.
+  const navigate = useNavigate()
 
   function handleSubmit(e) {
     e.preventDefault()
 
-    // TODO (Part 4): send the user back to the home page after submit
+    // Normally you'd save the quote here (that's next week, with a backend).
+    // Today we just demonstrate the redirect: send the user back to "/".
+    // Because there's no backend, the quote they typed will NOT appear in
+    // the list on Home — that's expected, not a bug.
+    navigate('/')
   }
 
   return (
